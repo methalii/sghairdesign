@@ -12,11 +12,18 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ==================== JSON File Database ====================
-const DB_PATH = path.join(__dirname, 'data.json');
+// Dosyanın en üstündeki 'fs' ve 'path' kısımlarını silebilirsin.
+import { kv } from '@vercel/kv'; 
 
-function loadDB() {
-    if (!fs.existsSync(DB_PATH)) {
-        const defaultData = {
+// ==================== Vercel KV Database ====================
+const DB_KEY = 'appointment_data';
+
+async function loadDB() {
+   
+    const data = await kv.get(DB_KEY);
+    
+    if (!data) {
+        return {
             appointments: [],
             settings: {
                 working_hours: { start: '10:00', end: '20:00' },
@@ -25,18 +32,14 @@ function loadDB() {
             },
             nextId: 1
         };
-        fs.writeFileSync(DB_PATH, JSON.stringify(defaultData, null, 2), 'utf-8');
-        return defaultData;
     }
-    return JSON.parse(fs.readFileSync(DB_PATH, 'utf-8'));
+    return data;
 }
 
-function saveDB(data) {
-    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
-}
+async function saveDB(data) {
 
-// Initialize DB on startup
-loadDB();
+    await kv.set(DB_KEY, data);
+}
 
 // ==================== API ROUTES ====================
 
@@ -199,3 +202,4 @@ app.listen(PORT, () => {
     console.log(`✂️  S&G Hair Design server running at http://localhost:${PORT}`);
     console.log(`📋 Admin panel: http://localhost:${PORT}/admin.html`);
 });
+
