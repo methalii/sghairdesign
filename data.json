@@ -1,0 +1,17 @@
+{
+  "appointments": [],
+  "settings": {
+    "working_hours": {
+      "start": "10:00",
+      "end": "20:00"
+    },
+    "off_days": {
+      "weekly": [
+        4
+      ],
+      "specific": []
+    },
+    "admin_password": "admin"
+  },
+  "nextId": 6
+}

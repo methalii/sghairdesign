@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S&G Hair Design - Randevu</title>
+  <meta name="description" content="S&G Hair Design - Online Randevu Sistemi. Hızlı ve kolay randevu alın.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="header__icon">✂️</span>
+    <h1 class="header__title">S&G Hair Design</h1>
+    <p class="header__subtitle">Online Randevu Sistemi</p>
+    <div class="header__divider"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Calendar Section -->
+    <section class="calendar-card">
+      <h2 class="section-title">
+        <span class="section-title__icon">📅</span>
+        Tarih Seçin
+      </h2>
+      <div class="calendar-nav">
+        <button class="calendar-nav__btn" id="prevMonth" aria-label="Önceki ay">‹</button>
+        <span class="calendar-nav__title" id="calendarTitle"></span>
+        <button class="calendar-nav__btn" id="nextMonth" aria-label="Sonraki ay">›</button>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <!-- Time Slots Section -->
+    <section class="timeslots-card" id="timeslotsCard">
+      <h2 class="section-title">
+        <span class="section-title__icon">🕐</span>
+        Saat Seçin
+      </h2>
+      <div class="timeslots-info" id="timeslotsInfo"></div>
+      <div class="timeslots-grid" id="timeslotsGrid"></div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-card" id="bookingCard">
+      <h2 class="section-title">
+        <span class="section-title__icon">📝</span>
+        Randevu Bilgileri
+      </h2>
+      <div class="booking-summary" id="bookingSummary"></div>
+      <form id="bookingForm" autocomplete="off">
+        <div class="form-group">
+          <label for="firstName">Ad</label>
+          <input type="text" id="firstName" placeholder="Adınızı girin" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Soyad</label>
+          <input type="text" id="lastName" placeholder="Soyadınızı girin" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon Numarası</label>
+          <input type="tel" id="phone" placeholder="05XX XXX XX XX" required>
+        </div>
+        <button type="submit" class="btn-primary" id="submitBtn">
+          ✂️ Randevuyu Onayla
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 S&G Hair Design — Tüm hakları saklıdır.</p>
+    <p style="margin-top: 4px;">
+      <a href="admin.html">Yönetim Paneli</a>
+    </p>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Admin Link -->
+  <a href="admin.html" class="admin-link" title="Yönetim Paneli">⚙️</a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
