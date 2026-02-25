@@ -15,10 +15,3 @@
   },
   "nextId": 6
 }
-{
-  "functions": {
-    "api/*.js": {
-      "includeFiles": "data.json"
-    }
-  }
-}
